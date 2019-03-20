@@ -1,4 +1,5 @@
 {
+  "homepage": "http://romainjacquel.github.io/on_mange_ou",
   "name": "mangeou",
   "version": "0.1.0",
   "private": true,
@@ -14,12 +15,17 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
 }

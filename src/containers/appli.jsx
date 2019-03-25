@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
-import TextAppli from "../components/text-appli"
+import Text from "../components/text-appli"
+import Input from "../components/input-appli"
 
 class Appli extends Component  {
+
 render () {
+
 return (
-    <div>
-        <TextAppli/>
+    <div className="container">
+        <Text/>
+        <Input/>
     </div>
 )
 }

@@ -21,3 +21,21 @@ h2{
 .container .input_appli{
   width: 55%;
 }
+
+.text_appli{
+ font-size: 1.8rem;
+ margin: 2.5rem 0;
+ line-height: 2rem;
+}
+
+.text_appli :nth-child(3){
+  line-height: 2rem;
+}
+
+.text_appli p span{
+  text-decoration: underline
+}
+
+.text_appli .astuce{
+  color:red;
+}

@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import {InputGroup, FormControl, Button} from 'react-bootstrap'
 
+const initialState = {InputText : "", placeHolder:"Entrez un restaurant", locations:[], randomLocation:null, clicked:false}
+
 class InputAppli extends Component  {
 
 constructor(props){
     super(props)
-    this.state = {InputText : "", placeHolder:"Entrez un restaurant", locations:[], randomLocation:null, clicked:false}
+    this.state = initialState
 }
 
 
@@ -14,16 +16,20 @@ handleChange(event){
 }
 
 addLocation(){
+  // add location in array of state
   this.setState(prevState => ({
     locations : [...prevState.locations, this.state.InputText]
   }))
+  // reset Input
   this.setState({InputText:""})
-  
-  console.log(this.state.locations)
 }
 
 renderRandomLocation(){
   this.setState({clicked:true,randomLocation:this.state.locations[Math.floor(Math.random()*this.state.locations.length)]})
+}
+
+reset(){
+  this.setState(initialState)
 }
 
 render () {
@@ -40,13 +46,13 @@ return (
     <InputGroup.Append>
       <Button variant="outline-primary" onClick={this.addLocation.bind(this)}>Ajouter</Button>
       <Button variant="outline-success" onClick={this.renderRandomLocation.bind(this)}>Mélanger</Button>
-      <Button variant="outline-danger">Reset</Button>
+      <Button variant="outline-danger"  onClick={this.reset.bind(this)}>Reset</Button>
     </InputGroup.Append>
   </InputGroup>
   <ul>
     {renderLocations}
   </ul>
-  <p>Lieu : {this.state.clicked && this.state.randomLocation}</p>
+  <p>Résultat : {this.state.clicked && this.state.randomLocation}</p>
   </div>
    
           
